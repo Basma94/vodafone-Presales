@@ -2,194 +2,173 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Requests – Presales</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>My Requests - Presales</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"/>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: { primary:"#137fec","background-light":"#f6f7f8","background-dark":"#101922" },
-          fontFamily: { display: ["Inter"] },
-          borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" }
-        },
-      },
-    };
-  </script>
-  <style>
-    .status-submitted{background:#F1F5F9;color:#475569}
-    .status-in-progress{background:#FEF9C3;color:#854D0E}
-    .status-pending-approval{background:#FEE2E2;color:#B91C1C}
-    .status-completed{background:#D1FAE5;color:#065F46}
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <style type="text/tailwindcss">
+    :root {
+      --background: #FFFFFF;
+      --foreground: #0F172A;
+      --muted: #F1F5F9;
+      --muted-foreground: #64748B;
+      --primary: #DC2626;
+      --primary-foreground: #F8FAFC;
+      --border: #E2E8F0;
+    }
+    body { font-family: 'Inter', sans-serif; background-color: var(--background); color: var(--foreground); }
+    .status-submitted { background-color:#F1F5F9; color:#475569; }
+    .status-in-progress { background-color:#FEF9C3; color:#854D0E; }
+    .status-pending-approval { background-color:#FEE2E2; color:#B91C1C; }
+    .status-completed { background-color:#D1FAE5; color:#065F46; }
   </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-black dark:text-white">
-  <div class="relative flex min-h-screen w-full flex-col">
+<body class="bg-white">
+<div class="flex min-h-screen w-full flex-col">
 
-    <!-- Unified Header -->
-    <header class="flex items-center justify-between border-b border-black/10 dark:border-white/10 px-10 py-4">
-      <div class="flex items-center gap-4">
-        <div class="h-6 w-6">
-          <svg class="text-red-600" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
-              d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"/>
-          </svg>
-        </div>
-        <h2 class="text-lg font-bold">Presales</h2>
-      </div>
-      <nav class="flex items-center gap-8">
-        <a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-red-600 dark:hover:text-red-500 transition-colors" href="index.html">Dashboard</a>
-        <a class="text-sm font-medium text-red-600 dark:text-red-500 transition-colors" href="#">My Requests</a>
-        <button class="size-10 rounded-full bg-cover bg-center"
-          style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlzOkE-f7Ac7HyEeJmjYD-yYBcMUn0bZcrVfp7WYBtYW4AiaNAHcFLsvOa8c_Ns6i_5CiEbhLOcMJp8gbI80rq0Omo1SW0-n94GJGifJrH30OV5r-Hy5mZdIkLPEY4wPumthMKUYzgLzcdgfHMVcLSPeKFEkUChq70Bbm0htrm2-F2wvMyBnsKtz_kxTEE3wxQ_CkykdyP7IQzfAvmOxrrURLfgaaI6c4sZZqYb729ECnb8xsw5hQTMMOp0bUDvF2y4KNeabGQOnM");'></button>
-      </nav>
-    </header>
-
-    <!-- Content -->
-    <main class="flex-1 px-10 py-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="mb-6 flex items-center justify-between">
-          <h1 class="text-3xl font-bold">My Requests</h1>
-        </div>
-
-        <!-- Filters + Search -->
-        <div class="mb-4 flex items-center justify-between gap-4">
-          <div class="flex items-center border-b border-black/10 dark:border-white/10">
-            <button class="px-3 py-2 text-sm font-semibold text-red-600 border-b-2 border-red-600">All</button>
-            <button class="px-3 py-2 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white">Submitted</button>
-            <button class="px-3 py-2 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white">In Progress</button>
-            <button class="px-3 py-2 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white whitespace-nowrap">Pending Approval</button>
-            <button class="px-3 py-2 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white">Completed</button>
-          </div>
-          <div class="relative w-full max-w-sm">
-            <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-black/40 dark:text-white/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="search" placeholder="Search requests..."
-              class="w-full rounded-md border border-black/10 bg-white py-2 pl-9 pr-4 text-sm shadow-sm focus:border-red-500 focus:ring-red-500 dark:border-white/10 dark:bg-zinc-800" />
-          </div>
-        </div>
-
-        <!-- Table -->
-        <div class="overflow-x-auto rounded-xl bg-white shadow-sm dark:bg-background-dark/50">
-          <table class="w-full text-left text-sm">
-            <thead class="border-b border-black/10 dark:border-white/10">
-              <tr>
-                <th class="px-6 py-4 text-black/60 dark:text-white/60">Request ID</th>
-                <th class="px-6 py-4 text-black/60 dark:text-white/60">Customer Name</th>
-                <th class="px-6 py-4 text-black/60 dark:text-white/60">Product</th>
-                <th class="px-6 py-4 text-black/60 dark:text-white/60 hidden md:table-cell">Business Area</th>
-                <th class="px-6 py-4 text-black/60 dark:text-white/60">Status</th>
-                <th class="px-6 py-4 text-black/60 dark:text-white/60 hidden md:table-cell">Submitted On</th>
-                <th class="px-6 py-4 text-black/60 dark:text-white/60 hidden md:table-cell">Last Updated</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-black/10 dark:divide-white/10">
-              <tr data-open-details class="cursor-pointer hover:bg-black/[0.03] dark:hover:bg-white/[0.04]">
-                <td class="px-6 py-4 font-medium">REQ-001</td>
-                <td class="px-6 py-4">Innovate Inc.</td>
-                <td class="px-6 py-4">Cloud Platform</td>
-                <td class="px-6 py-4 hidden md:table-cell">Fintech</td>
-                <td class="px-6 py-4"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-submitted">Submitted</span></td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-27</td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-27</td>
-              </tr>
-              <tr data-open-details class="cursor-pointer hover:bg-black/[0.03] dark:hover:bg-white/[0.04]">
-                <td class="px-6 py-4 font-medium">REQ-002</td>
-                <td class="px-6 py-4">Synergy Corp</td>
-                <td class="px-6 py-4">AI Analytics Suite</td>
-                <td class="px-6 py-4 hidden md:table-cell">Healthcare</td>
-                <td class="px-6 py-4"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-in-progress">In Progress</span></td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-26</td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-28</td>
-              </tr>
-              <tr data-open-details class="cursor-pointer hover:bg-black/[0.03] dark:hover:bg-white/[0.04]">
-                <td class="px-6 py-4 font-medium">REQ-003</td>
-                <td class="px-6 py-4">Apex Solutions</td>
-                <td class="px-6 py-4">Cybersecurity Shield</td>
-                <td class="px-6 py-4 hidden md:table-cell">Retail</td>
-                <td class="px-6 py-4"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-pending-approval whitespace-nowrap">Pending Approval</span></td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-25</td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-29</td>
-              </tr>
-              <tr data-open-details class="cursor-pointer hover:bg-black/[0.03] dark:hover:bg-white/[0.04]">
-                <td class="px-6 py-4 font-medium">REQ-004</td>
-                <td class="px-6 py-4">Momentum LLC</td>
-                <td class="px-6 py-4">IoT Connect</td>
-                <td class="px-6 py-4 hidden md:table-cell">Manufacturing</td>
-                <td class="px-6 py-4"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-completed">Completed</span></td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-24</td>
-                <td class="px-6 py-4 hidden md:table-cell text-black/60 dark:text-white/60">2023-10-26</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </main>
-
-    <!-- Floating Chatbot -->
-    <div class="fixed bottom-6 right-6 z-40">
-      <button id="chatToggle"
-        class="flex size-14 items-center justify-center rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
-        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+  <!-- Unified Header -->
+  <header class="flex items-center justify-between border-b border-black/10 dark:border-white/10 px-10 py-4">
+    <div class="flex items-center gap-4">
+      <div class="h-6 w-6">
+        <svg class="text-red-600" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"/>
         </svg>
-      </button>
-      <div id="chatPanel"
-        class="hidden mt-3 w-80 rounded-xl border border-black/10 bg-white shadow-2xl dark:border-white/10 dark:bg-zinc-900">
-        <div class="flex items-center justify-between border-b border-black/10 px-4 py-3 dark:border-white/10">
-          <span class="text-sm font-semibold">Assistant</span>
-          <button id="chatClose" class="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+      </div>
+      <h2 class="text-lg font-bold">Presales</h2>
+    </div>
+    <nav class="flex items-center gap-8">
+      <a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-red-600" href="index.html">Dashboard</a>
+      <a class="text-sm font-medium text-red-600" href="#">My Requests</a>
+      <button class="size-10 rounded-full bg-cover bg-center"
+        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlzOkE-f7Ac7HyEeJmjYD-yYBcMUn0bZcrVfp7WYBtYW4AiaNAHcFLsvOa8c_Ns6i_5CiEbhLOcMJp8gbI80rq0Omo1SW0-n94GJGifJrH30OV5r-Hy5mZdIkLPEY4wPumthMKUYzgLzcdgfHMVcLSPeKFEkUChq70Bbm0htrm2-F2wvMyBnsKtz_kxTEE3wxQ_CkykdyP7IQzfAvmOxrrURLfgaaI6c4sZZqYb729ECnb8xsw5hQTMMOp0bUDvF2y4KNeabGQOnM");'></button>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <main class="flex-1 px-10 py-8">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-6 flex items-center justify-between">
+        <h1 class="text-3xl font-bold">My Requests</h1>
+      </div>
+
+      <!-- Filters + Search -->
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <div class="flex items-center border-b border-black/10">
+          <button class="px-3 py-2 text-sm font-semibold text-red-600 border-b-2 border-red-600">All</button>
+          <button class="px-3 py-2 text-sm text-black/60 hover:text-black">Submitted</button>
+          <button class="px-3 py-2 text-sm text-black/60 hover:text-black">In Progress</button>
+          <button class="px-3 py-2 text-sm text-black/60 hover:text-black whitespace-nowrap">Pending Approval</button>
+          <button class="px-3 py-2 text-sm text-black/60 hover:text-black">Completed</button>
         </div>
-        <div class="h-64 overflow-y-auto px-4 py-3 text-sm text-black/80 dark:text-white/80">
-          <p>Hi! Ask me about your requests, status, or how to upload a Pega Demand.</p>
+        <div class="relative w-full max-w-sm">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+          <input class="w-full rounded-md border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm shadow-sm focus:border-red-500 focus:ring-red-500" placeholder="Search requests..." type="search"/>
         </div>
-        <div class="flex items-center gap-2 border-t border-black/10 px-3 py-3 dark:border-white/10">
-          <input id="chatInput" type="text" placeholder="Type a message…"
-            class="w-full rounded-lg border-black/10 bg-white text-sm text-black shadow-sm focus:border-red-500 focus:ring-red-500 dark:border-white/10 dark:bg-zinc-800 dark:text-white"/>
-          <button class="rounded-lg bg-red-600 px-3 py-2 text-xs font-medium text-white hover:bg-red-700">Send</button>
-        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto rounded-xl border bg-white shadow-sm">
+        <table class="w-full caption-bottom text-sm">
+          <thead class="border-b">
+            <tr>
+              <th class="px-6 py-4 text-left font-medium">Request ID</th>
+              <th class="px-6 py-4 text-left font-medium">Customer Name</th>
+              <th class="px-6 py-4 text-left font-medium">Product</th>
+              <th class="px-6 py-4 text-left font-medium hidden md:table-cell">Business Area</th>
+              <th class="px-6 py-4 text-left font-medium">Status</th>
+              <th class="px-6 py-4 text-left font-medium hidden md:table-cell">Submitted On</th>
+              <th class="px-6 py-4 text-left font-medium hidden md:table-cell">Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cursor-pointer hover:bg-gray-50" data-open-details>
+              <td class="px-6 py-4 font-medium">REQ-001</td>
+              <td class="px-6 py-4">Innovate Inc.</td>
+              <td class="px-6 py-4">Cloud Platform</td>
+              <td class="px-6 py-4 hidden md:table-cell">Fintech</td>
+              <td class="px-6 py-4"><span class="status-submitted px-2.5 py-0.5 rounded-full text-xs font-semibold">Submitted</span></td>
+              <td class="px-6 py-4 hidden md:table-cell">2023-10-27</td>
+              <td class="px-6 py-4 hidden md:table-cell">2023-10-27</td>
+            </tr>
+            <tr class="cursor-pointer hover:bg-gray-50" data-open-details>
+              <td class="px-6 py-4 font-medium">REQ-002</td>
+              <td class="px-6 py-4">Synergy Corp</td>
+              <td class="px-6 py-4">AI Analytics Suite</td>
+              <td class="px-6 py-4 hidden md:table-cell">Healthcare</td>
+              <td class="px-6 py-4"><span class="status-in-progress px-2.5 py-0.5 rounded-full text-xs font-semibold">In Progress</span></td>
+              <td class="px-6 py-4 hidden md:table-cell">2023-10-26</td>
+              <td class="px-6 py-4 hidden md:table-cell">2023-10-28</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </main>
+</div>
 
-    <!-- Request Details Modal -->
-    <div id="detailsOverlay" class="invisible pointer-events-none fixed inset-0 z-50 flex items-center justify-center">
-      <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-      <div class="relative w-full max-w-3xl rounded-xl border border-black/10 bg-white shadow-2xl dark:border-white/10 dark:bg-zinc-900">
-        <div class="flex items-start justify-between border-b border-black/10 px-6 py-4 dark:border-white/10">
-          <div>
-            <h2 class="text-xl font-bold">Request Details</h2>
-            <p id="reqIdText" class="mt-1 text-sm text-black/60 dark:text-white/60">Request ID: #REQ-000</p>
-          </div>
-          <button id="detailsClose" class="text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-        <div class="p-6">
-          <div class="mb-8">
-            <div class="h-1 w-full rounded-full bg-gray-200 dark:bg-gray-700">
-              <div id="progressBar" class="h-1 rounded-full bg-red-600" style="width:50%"></div>
-            </div>
-            <div class="mt-2 flex justify-between text-xs text-black/60 dark:text-white/60">
-              <span>Submitted</span><span>In Analysis</span><span>Proposal Draft</span><span>Completed</span>
-            </div>
-          </div>
+<!-- Floating Chatbot -->
+<div class="fixed bottom-6 right-6 z-40">
+  <button id="chatToggle"
+    class="flex size-14 items-center justify-center rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700">
+    <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+  </button>
+  <div id="chatPanel" class="hidden mt-3 w-80 rounded-xl border bg-white shadow-2xl">
+    <div class="flex items-center justify-between border-b px-4 py-3">
+      <span class="text-sm font-semibold">Assistant</span>
+      <button id="chatClose" class="text-gray-500 hover:text-gray-700">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="2"/></svg>
+      </button>
+    </div>
+    <div class="h-64 overflow-y-auto px-4 py-3 text-sm">
+      <p>Hi! Ask me about your requests, status, or how to upload a Pega Demand.</p>
+    </div>
+    <div class="flex items-center gap-2 border-t px-3 py-3">
+      <input type="text" placeholder="Type a message…" class="w-full rounded-lg border px-2 py-1 text-sm"/>
+      <button class="rounded-lg bg-red-600 px-3 py-2 text-xs font-medium text-white hover:bg-red-700">Send</button>
+    </div>
+  </div>
+</div>
 
-          <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div><h3 class="text-sm font-medium text-black/70 dark:text-white/70">Customer Name</h3><p id="metaCustomer" class="font-semibold">—</p></div>
-            <div><h3 class="text-sm font-medium text-black/70 dark:text-white/70">Product</h3><p id="metaProduct" class="font-semibold">—</p></div>
-            <div><h3 class="text-sm font-medium text-black/70 dark:text-white/70">Deadline</h3><p id="metaDeadline" class="font-semibold">—</p></div>
-            <div><h3 class="text-sm font-medium text-black/70 dark:text-white/70">Submitted On</h3><p id="metaSubmitted" class="font-semibold">—</p></div>
-          </div>
+<!-- Request Details Modal -->
+<div id="detailsOverlay" class="invisible pointer-events-none fixed inset-0 z-50 flex items-center justify-center">
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="relative w-full max-w-2xl rounded-lg bg-white shadow-xl">
+    <div class="flex items-center justify-between p-4 border-b">
+      <h3 id="modalTitle" class="text-lg font-semibold">Request Details</h3>
+      <button id="detailsClose" class="text-gray-500 hover:text-gray-700">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="p-6">
+      <p id="modalContent">Details will appear here...</p>
+    </div>
+  </div>
+</div>
 
-          <div class="mb-8">
-            <h3 class="mb-3 text-lg font-semibold">Attachments</h3>
-            <div class="flex items-center justify-between rounded-lg bg-black/[0.04] px-3 py-3 dark:bg-white/[0.06]">
-              <div class="flex items-center gap-3">
-                <svg class="h-5 w-5 text-black/60 dark:text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586L18 8.414V19
+<script>
+  // Chatbot toggle
+  const chatToggle = document.getElementById('chatToggle');
+  const chatPanel  = document.getElementById('chatPanel');
+  const chatClose  = document.getElementById('chatClose');
+  chatToggle.addEventListener('click',()=>chatPanel.classList.toggle('hidden'));
+  chatClose.addEventListener('click',()=>chatPanel.classList.add('hidden'));
+
+  // Modal
+  const overlay = document.getElementById('detailsOverlay');
+  const closeBtn = document.getElementById('detailsClose');
+  document.querySelectorAll('[data-open-details]').forEach(row=>{
+    row.addEventListener('click',()=>{
+      document.getElementById('modalTitle').textContent = "Request Details: " + row.cells[0].innerText;
+      document.getElementById('modalContent').textContent = "Customer: " + row.cells[1].innerText + " | Product: " + row.cells[2].innerText;
+      overlay.classList.remove('invisible','pointer-events-none');
+    });
+  });
+  closeBtn.addEventListener('click',()=>overlay.classList.add('invisible','pointer-events-none'));
+</script>
+</body>
+</html>
