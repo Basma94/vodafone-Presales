@@ -135,7 +135,7 @@
 </div>
 
 <!-- Request Details Modal -->
-<div id="detailsOverlay" class="invisible pointer-events-none fixed inset-0 z-50 flex items-center justify-center">
+<div id="detailsOverlay" class="fixed inset-0 z-50 hidden items-center justify-center">
   <div class="absolute inset-0 bg-black/40"></div>
   <div class="relative w-full max-w-2xl rounded-lg bg-white shadow-xl">
     <div class="flex items-center justify-between p-4 border-b">
@@ -161,14 +161,26 @@
   // Modal
   const overlay = document.getElementById('detailsOverlay');
   const closeBtn = document.getElementById('detailsClose');
+
+  function openDetails(row) {
+    const cells = row.querySelectorAll('td');
+    document.getElementById('modalTitle').textContent =
+      "Request Details: " + cells[0].innerText;
+    document.getElementById('modalContent').textContent =
+      "Customer: " + cells[1].innerText + " | Product: " + cells[2].innerText;
+    overlay.classList.remove('hidden');
+  }
+
+  function closeDetails() {
+    overlay.classList.add('hidden');
+  }
+
   document.querySelectorAll('[data-open-details]').forEach(row=>{
-    row.addEventListener('click',()=>{
-      document.getElementById('modalTitle').textContent = "Request Details: " + row.cells[0].innerText;
-      document.getElementById('modalContent').textContent = "Customer: " + row.cells[1].innerText + " | Product: " + row.cells[2].innerText;
-      overlay.classList.remove('invisible','pointer-events-none');
-    });
+    row.addEventListener('click',()=>openDetails(row));
   });
-  closeBtn.addEventListener('click',()=>overlay.classList.add('invisible','pointer-events-none'));
+
+  closeBtn.addEventListener('click', closeDetails);
+  overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeDetails(); });
 </script>
 </body>
 </html>
