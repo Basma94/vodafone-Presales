@@ -1,127 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>My Requests - Presales</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-  <style type="text/tailwindcss">
-    :root {
-      --background: #FFFFFF;
-      --foreground: #0F172A;
-      --muted: #F1F5F9;
-      --muted-foreground: #64748B;
-      --primary: #DC2626;
-      --primary-foreground: #F8FAFC;
-      --border: #E2E8F0;
-    }
-    body { font-family: 'Inter', sans-serif; background-color: var(--background); color: var(--foreground); }
-    .status-submitted { background-color:#F1F5F9; color:#475569; }
-    .status-in-progress { background-color:#FEF9C3; color:#854D0E; }
-    .status-pending-approval { background-color:#FEE2E2; color:#B91C1C; }
-    .status-completed { background-color:#D1FAE5; color:#065F46; }
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Requests - Presales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+  :root {
+    --background: #FFFFFF;
+    --foreground: #0F172A;
+    --muted: #F1F5F9;
+    --muted-foreground: #64748B;
+    --primary: #DC2626;
+    --primary-foreground: #F8FAFC;
+    --border: #E2E8F0;
+  }
+  body { font-family: 'Inter', sans-serif; background-color: var(--background); color: var(--foreground); }
+  .status-submitted { background-color:#F1F5F9; color:#475569; }
+  .status-in-progress { background-color:#FEF9C3; color:#854D0E; }
+  .status-pending-approval { background-color:#FEE2E2; color:#B91C1C; }
+  .status-completed { background-color:#D1FAE5; color:#065F46; }
+</style>
 </head>
 <body class="bg-white">
 <div class="flex min-h-screen w-full flex-col">
 
-  <!-- Unified Header -->
-  <header class="flex items-center justify-between border-b border-black/10 dark:border-white/10 px-10 py-4">
+  <!-- Unified Header (matches index.html) -->
+  <header class="flex items-center justify-between border-b border-black/10 px-10 py-4">
     <div class="flex items-center gap-4">
       <div class="h-6 w-6">
         <svg class="text-red-600" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
-            d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"/>
+          <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
         </svg>
       </div>
       <h2 class="text-lg font-bold">Presales</h2>
     </div>
     <nav class="flex items-center gap-8">
-      <a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-red-600" href="index.html">Dashboard</a>
-      <a class="text-sm font-medium text-red-600" href="#">My Requests</a>
-      <button class="size-10 rounded-full bg-cover bg-center"
-        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlzOkE-f7Ac7HyEeJmjYD-yYBcMUn0bZcrVfp7WYBtYW4AiaNAHcFLsvOa8c_Ns6i_5CiEbhLOcMJp8gbI80rq0Omo1SW0-n94GJGifJrH30OV5r-Hy5mZdIkLPEY4wPumthMKUYzgLzcdgfHMVcLSPeKFEkUChq70Bbm0htrm2-F2wvMyBnsKtz_kxTEE3wxQ_CkykdyP7IQzfAvmOxrrURLfgaaI6c4sZZqYb729ECnb8xsw5hQTMMOp0bUDvF2y4KNeabGQOnM");'></button>
+      <a class="text-sm font-medium text-black/60 hover:text-red-600 transition-colors" href="index.html">Dashboard</a>
+      <a class="text-sm font-medium text-red-600 transition-colors cursor-default" href="#">My Requests</a>
+      <button class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlzOkE-f7Ac7HyEeJmjYD-yYBcMUn0bZcrVfp7WYBtYW4AiaNAHcFLsvOa8c_Ns6i_5CiEbhLOcMJp8gbI80rq0Omo1SW0-n94GJGifJrH30OV5r-Hy5mZdIkLPEY4wPumthMKUYzgLzcdgfHMVcLSPeKFEkUChq70Bbm0htrm2-F2wvMyBnsKtz_kxTEE3wxQ_CkykdyP7IQzfAvmOxrrURLfgaaI6c4sZZqYb729ECnb8xsw5hQTMMOp0bUDvF2y4KNeabGQOnM");'></button>
     </nav>
   </header>
 
-  <!-- Content -->
-  <main class="flex-1 px-10 py-8">
-    <div class="mx-auto max-w-7xl">
-      <div class="mb-6 flex items-center justify-between">
-        <h1 class="text-3xl font-bold">My Requests</h1>
+  <!-- Content (unchanged layout/design) -->
+  <main class="flex flex-1 flex-col bg-gray-50/50">
+    <div class="flex-1 space-y-8 p-4 md:p-8">
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold tracking-tight">My Requests</h1>
       </div>
 
-      <!-- Filters + Search -->
-      <div class="mb-4 flex items-center justify-between gap-4">
-        <div class="flex items-center border-b border-black/10">
-          <button class="px-3 py-2 text-sm font-semibold text-red-600 border-b-2 border-red-600">All</button>
-          <button class="px-3 py-2 text-sm text-black/60 hover:text-black">Submitted</button>
-          <button class="px-3 py-2 text-sm text-black/60 hover:text-black">In Progress</button>
-          <button class="px-3 py-2 text-sm text-black/60 hover:text-black whitespace-nowrap">Pending Approval</button>
-          <button class="px-3 py-2 text-sm text-black/60 hover:text-black">Completed</button>
-        </div>
+      <div class="flex items-center">
         <div class="relative w-full max-w-sm">
           <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
           <input class="w-full rounded-md border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm shadow-sm focus:border-red-500 focus:ring-red-500" placeholder="Search requests..." type="search"/>
         </div>
       </div>
 
-      <!-- Table -->
-      <div class="overflow-x-auto rounded-xl border bg-white shadow-sm">
-        <table class="w-full caption-bottom text-sm">
-          <thead class="border-b">
-            <tr>
-              <th class="px-6 py-4 text-left font-medium">Request ID</th>
-              <th class="px-6 py-4 text-left font-medium">Customer Name</th>
-              <th class="px-6 py-4 text-left font-medium">Product</th>
-              <th class="px-6 py-4 text-left font-medium hidden md:table-cell">Business Area</th>
-              <th class="px-6 py-4 text-left font-medium">Status</th>
-              <th class="px-6 py-4 text-left font-medium hidden md:table-cell">Submitted On</th>
-              <th class="px-6 py-4 text-left font-medium hidden md:table-cell">Last Updated</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="cursor-pointer hover:bg-gray-50" data-open-details>
-              <td class="px-6 py-4 font-medium">REQ-001</td>
-              <td class="px-6 py-4">Innovate Inc.</td>
-              <td class="px-6 py-4">Cloud Platform</td>
-              <td class="px-6 py-4 hidden md:table-cell">Fintech</td>
-              <td class="px-6 py-4"><span class="status-submitted px-2.5 py-0.5 rounded-full text-xs font-semibold">Submitted</span></td>
-              <td class="px-6 py-4 hidden md:table-cell">2023-10-27</td>
-              <td class="px-6 py-4 hidden md:table-cell">2023-10-27</td>
-            </tr>
-            <tr class="cursor-pointer hover:bg-gray-50" data-open-details>
-              <td class="px-6 py-4 font-medium">REQ-002</td>
-              <td class="px-6 py-4">Synergy Corp</td>
-              <td class="px-6 py-4">AI Analytics Suite</td>
-              <td class="px-6 py-4 hidden md:table-cell">Healthcare</td>
-              <td class="px-6 py-4"><span class="status-in-progress px-2.5 py-0.5 rounded-full text-xs font-semibold">In Progress</span></td>
-              <td class="px-6 py-4 hidden md:table-cell">2023-10-26</td>
-              <td class="px-6 py-4 hidden md:table-cell">2023-10-28</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center border-b border-gray-200">
+          <button class="whitespace-nowrap px-3 py-2 text-sm font-semibold text-red-600 border-b-2 border-red-600">All</button>
+          <button class="whitespace-nowrap px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Submitted</button>
+          <button class="whitespace-nowrap px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">In Progress</button>
+          <button class="whitespace-nowrap px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Pending Approval</button>
+          <button class="whitespace-nowrap px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Completed</button>
+        </div>
+
+        <div class="rounded-xl border bg-white shadow-sm">
+          <div class="relative w-full overflow-auto">
+            <table class="w-full caption-bottom text-sm">
+              <thead class="[&_tr]:border-b">
+                <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                  <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground w-[140px]">Request ID</th>
+                  <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Customer Name</th>
+                  <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Product</th>
+                  <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground hidden md:table-cell">Business Area</th>
+                  <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground w-[150px]">Status</th>
+                  <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground hidden md:table-cell w-[130px]">Submitted On</th>
+                  <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground hidden md:table-cell w-[130px]">Last Updated</th>
+                </tr>
+              </thead>
+              <tbody class="[&_tr:last-child]:border-0">
+                <tr class="border-b transition-colors hover:bg-gray-50/50 cursor-pointer" data-modal-target="request-details-modal">
+                  <td class="p-4 align-middle font-medium">REQ-001</td>
+                  <td class="p-4 align-middle">Innovate Inc.</td>
+                  <td class="p-4 align-middle">Cloud Platform</td>
+                  <td class="p-4 align-middle hidden md:table-cell">Fintech</td>
+                  <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-submitted">Submitted</span></td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-27</td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-27</td>
+                </tr>
+                <tr class="border-b transition-colors hover:bg-gray-50/50 cursor-pointer" data-modal-target="request-details-modal">
+                  <td class="p-4 align-middle font-medium">REQ-002</td>
+                  <td class="p-4 align-middle">Synergy Corp</td>
+                  <td class="p-4 align-middle">AI Analytics Suite</td>
+                  <td class="p-4 align-middle hidden md:table-cell">Healthcare</td>
+                  <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-in-progress">In Progress</span></td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-26</td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-28</td>
+                </tr>
+                <tr class="border-b transition-colors hover:bg-gray-50/50 cursor-pointer" data-modal-target="request-details-modal">
+                  <td class="p-4 align-middle font-medium">REQ-003</td>
+                  <td class="p-4 align-middle">Apex Solutions</td>
+                  <td class="p-4 align-middle">Cybersecurity Shield</td>
+                  <td class="p-4 align-middle hidden md:table-cell">Retail</td>
+                  <td class="p-4 align-middle"><span class="whitespace-nowrap inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-pending-approval">Pending Approval</span></td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-25</td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-29</td>
+                </tr>
+                <tr class="border-b transition-colors hover:bg-gray-50/50 cursor-pointer" data-modal-target="request-details-modal">
+                  <td class="p-4 align-middle font-medium">REQ-004</td>
+                  <td class="p-4 align-middle">Momentum LLC</td>
+                  <td class="p-4 align-middle">IoT Connect</td>
+                  <td class="p-4 align-middle hidden md:table-cell">Manufacturing</td>
+                  <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-completed">Completed</span></td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-24</td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-26</td>
+                </tr>
+                <tr class="border-b transition-colors hover:bg-gray-50/50 cursor-pointer" data-modal-target="request-details-modal">
+                  <td class="p-4 align-middle font-medium">REQ-005</td>
+                  <td class="p-4 align-middle">Catalyst Partners</td>
+                  <td class="p-4 align-middle">Cloud Platform</td>
+                  <td class="p-4 align-middle hidden md:table-cell">Fintech</td>
+                  <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold status-submitted">Submitted</span></td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-23</td>
+                  <td class="p-4 align-middle hidden md:table-cell text-gray-600">2023-10-23</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
 </div>
 
-<!-- Floating Chatbot -->
+<!-- Floating Chatbot (matches index.html) -->
 <div class="fixed bottom-6 right-6 z-40">
-  <button id="chatToggle"
-    class="flex size-14 items-center justify-center rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700">
-    <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+  <button id="chatToggle" class="flex size-14 items-center justify-center rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+    </svg>
   </button>
   <div id="chatPanel" class="hidden mt-3 w-80 rounded-xl border bg-white shadow-2xl">
     <div class="flex items-center justify-between border-b px-4 py-3">
       <span class="text-sm font-semibold">Assistant</span>
-      <button id="chatClose" class="text-gray-500 hover:text-gray-700">
-        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="2"/></svg>
+      <button id="chatClose" class="text-gray-500 hover:text-gray-700" aria-label="Close chat">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
     <div class="h-64 overflow-y-auto px-4 py-3 text-sm">
@@ -134,53 +163,170 @@
   </div>
 </div>
 
-<!-- Request Details Modal -->
-<div id="detailsOverlay" class="fixed inset-0 z-50 hidden items-center justify-center">
-  <div class="absolute inset-0 bg-black/40"></div>
-  <div class="relative w-full max-w-2xl rounded-lg bg-white shadow-xl">
-    <div class="flex items-center justify-between p-4 border-b">
-      <h3 id="modalTitle" class="text-lg font-semibold">Request Details</h3>
-      <button id="detailsClose" class="text-gray-500 hover:text-gray-700">
+<!-- Request Details Modal (kept design) -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80" id="request-details-modal">
+  <div class="relative w-full max-w-4xl rounded-lg bg-white shadow-xl">
+    <div class="flex items-center justify-between p-6 border-b">
+      <h3 id="reqTitle" class="text-2xl font-semibold">Request Details</h3>
+      <button class="p-2 text-gray-400 rounded-md hover:bg-gray-100 hover:text-gray-600" data-modal-hide="request-details-modal" aria-label="Close">
         <span class="material-symbols-outlined">close</span>
       </button>
     </div>
-    <div class="p-6">
-      <p id="modalContent">Details will appear here...</p>
+
+    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 space-y-6">
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Request Metadata</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="text-gray-500">Customer Name</p>
+              <p id="mdCustomer" class="font-medium">—</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Product</p>
+              <p id="mdProduct" class="font-medium">—</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Deadline</p>
+              <p id="mdDeadline" class="font-medium">—</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Uploaded Document</h4>
+          <a class="flex items-center text-sm text-blue-600 hover:underline" href="#">
+            <span class="material-symbols-outlined mr-2">attachment</span>
+            <span id="mdAttachment">customer_requirements_v1.pdf</span>
+          </a>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Outputs</h4>
+          <div class="flex space-x-4">
+            <button class="flex items-center gap-2 rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200">
+              <span class="material-symbols-outlined">download</span> Download Proposal
+            </button>
+            <button class="flex items-center gap-2 rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200">
+              <span class="material-symbols-outlined">download</span> Download Executive Summary
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6 bg-gray-50 p-6 rounded-lg">
+        <h4 class="text-lg font-semibold">Progress Tracker</h4>
+        <div class="relative">
+          <div class="absolute left-2.5 top-2.5 h-full w-0.5 bg-gray-200"></div>
+
+          <div class="flex items-start space-x-4 relative mb-6">
+            <div class="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center ring-4 ring-white">
+              <span class="material-symbols-outlined text-white text-sm">check</span>
+            </div>
+            <div>
+              <p class="font-semibold">Submitted</p>
+              <p class="text-sm text-gray-500">Oct 24, 2023</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 relative mb-6">
+            <div class="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center ring-4 ring-white">
+              <span class="material-symbols-outlined text-white text-sm">check</span>
+            </div>
+            <div>
+              <p class="font-semibold">In Analysis</p>
+              <p class="text-sm text-gray-500">Oct 25, 2023</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 relative mb-6">
+            <div class="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center ring-4 ring-white">
+              <span class="material-symbols-outlined text-white text-sm">check</span>
+            </div>
+            <div>
+              <p class="font-semibold">Proposal Draft</p>
+              <p class="text-sm text-gray-500">Oct 26, 2023</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 relative">
+            <div class="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center ring-4 ring-white">
+              <span class="material-symbols-outlined text-white text-sm">check</span>
+            </div>
+            <div>
+              <p class="font-semibold">Completed</p>
+              <p class="text-sm text-gray-500">Oct 26, 2023</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-end gap-4 p-6 border-t">
+      <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">Update Info</button>
+      <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">Cancel Request</button>
     </div>
   </div>
 </div>
 
 <script>
-  // Chatbot toggle
+  // Floating chatbot (consistent with index.html)
   const chatToggle = document.getElementById('chatToggle');
   const chatPanel  = document.getElementById('chatPanel');
   const chatClose  = document.getElementById('chatClose');
-  chatToggle.addEventListener('click',()=>chatPanel.classList.toggle('hidden'));
-  chatClose.addEventListener('click',()=>chatPanel.classList.add('hidden'));
-
-  // Modal
-  const overlay = document.getElementById('detailsOverlay');
-  const closeBtn = document.getElementById('detailsClose');
-
-  function openDetails(row) {
-    const cells = row.querySelectorAll('td');
-    document.getElementById('modalTitle').textContent =
-      "Request Details: " + cells[0].innerText;
-    document.getElementById('modalContent').textContent =
-      "Customer: " + cells[1].innerText + " | Product: " + cells[2].innerText;
-    overlay.classList.remove('hidden');
+  if (chatToggle && chatPanel) {
+    chatToggle.addEventListener('click', () => chatPanel.classList.toggle('hidden'));
+    chatClose?.addEventListener('click', () => chatPanel.classList.add('hidden'));
   }
 
-  function closeDetails() {
-    overlay.classList.add('hidden');
-  }
+  // Open/close modal on row click — design unchanged
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('request-details-modal');
+    const rows = document.querySelectorAll('[data-modal-target="request-details-modal"]');
+    const closeButtons = document.querySelectorAll('[data-modal-hide="request-details-modal"]');
 
-  document.querySelectorAll('[data-open-details]').forEach(row=>{
-    row.addEventListener('click',()=>openDetails(row));
+    // Optional: update title/metadata from row (no visual change to layout)
+    function fillModalFromRow(row) {
+      const cells = row.querySelectorAll('td');
+      const reqId = cells[0]?.textContent?.trim() || '';
+      const customer = cells[1]?.textContent?.trim() || '';
+      const product = cells[2]?.textContent?.trim() || '';
+      document.getElementById('reqTitle').textContent = `Request Details: ${reqId}`;
+      document.getElementById('mdCustomer').textContent = customer || '—';
+      document.getElementById('mdProduct').textContent  = product  || '—';
+      // Leave deadline/attachment as-is to preserve your design/content
+    }
+
+    rows.forEach(row => {
+      row.addEventListener('click', () => {
+        fillModalFromRow(row);
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('overflow-hidden'); // prevent background scroll
+      });
+    });
+
+    function hideModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    closeButtons.forEach(button => {
+      button.addEventListener('click', hideModal);
+    });
+
+    // Click outside dialog area closes modal (keeps your overlay look)
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) hideModal();
+    });
+
+    // Esc to close (non-visual, UX improvement)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) hideModal();
+    });
   });
-
-  closeBtn.addEventListener('click', closeDetails);
-  overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeDetails(); });
 </script>
 </body>
 </html>
